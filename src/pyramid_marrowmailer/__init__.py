@@ -27,7 +27,7 @@ class MailDataManager(object):
         pass
 
     def sortKey(self):
-        return id(self)
+        return str(id(self))
 
     # No subtransaction support.
     def abort_sub(self, transaction):
@@ -96,6 +96,6 @@ def includeme(config):
 
 def get_mailer(request):
     """Obtain a mailer previously registered via
-    ``config.include('pyramid_marrrowmailer')``.
+    ``config.include('pyramid_marrowmailer')``.
     """
     return request.registry.getUtility(IMarrowMailer)
